@@ -233,6 +233,54 @@ body {
     background: linear-gradient(135deg, #fff9e6 0%, #ffffff 50%, #f0f8e8 100%);
 }
 
+/* Dress Code Section */
+#dresscode {
+    background: linear-gradient(135deg, #f0f8e8 0%, #ffffff 50%, #fff9e6 100%);
+}
+
+.dresscode-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+
+.dress-item-card {
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px 25px;
+    box-shadow: 0 6px 20px rgba(74, 103, 65, 0.15);
+    border: 2px solid #ffd700;
+}
+
+.dress-item-card h3 {
+    color: #4a6741;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.dress-item-card img {
+    display: block;
+    max-width: 320px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto 15px;
+    border-radius: 12px;
+}
+
+.dress-item-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
 .timetable-container {
     display: flex;
     flex-direction: column;
