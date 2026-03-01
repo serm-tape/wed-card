@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
 html, body {
     height: 100%;
     overflow-x: hidden;
@@ -20,6 +26,7 @@ body {
 /* Section Styles */
 .section {
     min-height: 100vh;
+    height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
@@ -27,6 +34,7 @@ body {
     padding: 20px;
     position: relative;
     scroll-snap-align: start;
+    scroll-snap-stop: always;
 }
 
 .content {
@@ -38,7 +46,17 @@ body {
 
 /* Header Section */
 #header {
-    background: linear-gradient(135deg, #fff9e6 0%, #fffacd 50%, #f0f8e8 100%);
+    background: linear-gradient(135deg, rgba(255, 249, 230, 0.78) 0%, rgba(255, 250, 205, 0.78) 50%, rgba(240, 248, 232, 0.78) 100%), url('img/cover.png') center center no-repeat;
+    background-size: cover;
+}
+
+.header-logo {
+    display: block;
+    max-width: 420px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto 24px;
+    object-fit: contain;
 }
 
 #header h1 {
@@ -68,7 +86,62 @@ body {
 
 /* Countdown Section */
 #countdown {
-    background: linear-gradient(135deg, #f0f8e8 0%, #ffffff 50%, #fff9e6 100%);
+    position: relative;
+}
+
+#countdown .countdown-content {
+    position: relative;
+    z-index: 1;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 1rem;
+}
+
+/* Carousel as full-section background, 10vw per second */
+.carousel-viewport {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.carousel-track {
+    display: flex;
+    width: max-content;
+    height: 100%;
+    animation: carousel-scroll 50s linear infinite;
+}
+
+.carousel-slide {
+    flex: 0 0 100vw;
+    width: 100vw;
+    height: 100%;
+    overflow: hidden;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Tint overlay - section 2 original background colours */
+.carousel-tint {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: linear-gradient(135deg, rgba(240, 248, 232, 0.82) 0%, rgba(255, 255, 255, 0.82) 50%, rgba(255, 249, 230, 0.82) 100%);
+    pointer-events: none;
+}
+
+@keyframes carousel-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-500vw);
+    }
 }
 
 .section-title {
@@ -249,13 +322,14 @@ body {
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-/* Smooth Scrolling */
-html {
-    scroll-behavior: smooth;
-}
 
 /* Mobile Optimizations */
 @media (max-width: 480px) {
+    .header-logo {
+        max-width: 300px;
+        margin-bottom: 16px;
+    }
+
     #header h1 {
         font-size: 2.5rem;
         letter-spacing: 4px;
